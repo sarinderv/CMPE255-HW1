@@ -14,7 +14,7 @@ const Selector = (props) => {
             value={props.query}
             onChange={(event,index,value) => props.onQueryChange(value)}
           >
-            <MenuItem value={1} primaryText="Most Viewed Questions" />
+            <MenuItem value={1} primaryText="Natality Graph" />
             <MenuItem value={2} primaryText="Most Recent Questions" />
             <MenuItem value={3} primaryText="Most Answered Questions" />
           </SelectField>

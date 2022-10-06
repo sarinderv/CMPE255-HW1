@@ -42,17 +42,18 @@ function queryBQ(projectId,query_id) {
     case '2':
       // The SQL query to run
       sqlQuery = `SELECT
-      id,
-      CONCAT(
-        'https://stackoverflow.com/questions/',
-        CAST(id as STRING)) as url,
-      view_count,
-      title,
-      creation_date,
-      answer_count
-      FROM \`bigquery-public-data.stackoverflow.posts_questions\`
-      ORDER BY creation_date DESC
-      LIMIT 10`;
+      CORR(a.area_deprivation_index_percent,
+        b.Ave_Age_of_Mother) corr,
+        a.year,
+        a.state
+    FROM
+      \`bigquery-public-data.broadstreet_adi.area_deprivation_index_by_county\` a
+    JOIN
+      \`bigquery-public-data.sdoh_cdc_wonder_natality.county_natality_by_maternal_morbidity\` b
+    ON
+      b.County_of_Residence_FIPS = a.county_fips_code
+    WHERE
+      b.Maternal_Morbidity_YN = 1`;
       break;
     case '3':
       // The SQL query to run

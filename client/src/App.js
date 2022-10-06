@@ -3,7 +3,7 @@ import './App.css';
 import axios from 'axios';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
-import QuestionsTable from './components/QuestionsTable'
+import NatalityGraph from './components/NatalityGraph'
 import Selector from './components/Selector'
 
 class App extends Component {
@@ -11,7 +11,7 @@ class App extends Component {
     super(props)
 
     this.state = { 
-      questions: ['hello'],
+      data: [],
       query: 1
     }
 
@@ -19,19 +19,11 @@ class App extends Component {
     
   }
 
-  getTopQuestions(query) {
-    axios.get(`stackoverflow/${query}`)
-      .then(res => {
-        console.log(res.data)
-        this.setState({ questions: res.data })
-      })
-  }
-
   getCmpe255Query(query) {
     axios.get(`cmpe255hw1/${query}`)
       .then(res => {
         console.log(res.data)
-        this.setState({ questions: res.data })
+        this.setState({ data: res.data })
       })
   }
 
@@ -51,7 +43,7 @@ class App extends Component {
             showMenuIconButton = {false}
           />
           <Selector onQueryChange={this.handleQuery} query={this.state.query}/>
-          <QuestionsTable questions={this.state.questions}/>
+          <NatalityGraph data={this.state.data}/>
         </div>
       </MuiThemeProvider>
     );
