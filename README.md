@@ -40,6 +40,7 @@ group by
 ## Install
 
 - Clone this repository
+- cd into root directory
 - `npm install`
 
 ## Usage
@@ -56,7 +57,7 @@ GOOGLE_APPLICATION_CREDENTIALS = 'PATH/To/Your/JSON/Key/File'
 
 ### Start Express Server
 
-node-bigquery:
+root directory:
 
 ```
 npm start
@@ -64,7 +65,7 @@ npm start
 
 ### Start React Client
 
-node-bigquery/client:
+cd ./client:
 
 ```
 npm start
