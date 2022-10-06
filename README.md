@@ -11,13 +11,31 @@ This app is based on the Google BigQuery app tutorial [Create A Simple Applicati
 
 ## Demo
 
-![React-Bigquery-Demo](https://raw.githubusercontent.com/tonyxu-io/storage/master/react-bigquery-app.png)
+![React-Bigquery-Demo](https://user-images.githubusercontent.com/4393945/194223157-db0fa638-9514-460b-9aeb-d17454f073a5.png)
+
 
 Supported queries:
 
-- Most Viewed StackOverflow Questions
-- Most Recent StackOverflow Questions
-- Most Answered StackOverflow Questions
+- Natality correlation: Ave_Age_of_Mother to Maternal_Morbidity_YN
+```
+SELECT
+  CORR(a.area_deprivation_index_percent,
+    b.Ave_Age_of_Mother) corr,
+    a.year,
+    a.state
+FROM
+  `bigquery-public-data.broadstreet_adi.area_deprivation_index_by_county` a
+JOIN
+  `bigquery-public-data.sdoh_cdc_wonder_natality.county_natality_by_maternal_morbidity` b
+ON
+  b.County_of_Residence_FIPS = a.county_fips_code
+WHERE
+  b.Maternal_Morbidity_YN = 1
+group by
+  a.year, a.state
+```
+
+- Others? TBD
 
 ## Install
 
