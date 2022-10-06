@@ -1,3 +1,4 @@
+import { Line } from 'react-chartjs-2';
 import React from 'react';
 import {
   Table,
@@ -11,6 +12,24 @@ import FlatButton from 'material-ui/FlatButton';
 var moment = require('moment');
 
 const QuestionsTable = (props) => {
+  const labels = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+  ];
+
+  const data = {
+    labels: labels,
+    datasets: [{
+      label: 'My First dataset',
+      backgroundColor: 'rgb(255, 99, 132)',
+      borderColor: 'rgb(255, 99, 132)',
+      data: [0, 10, 5, 2, 20, 30, 45],
+    }]
+  };
   console.log('props',props)
   var items = <TableRow key={0}/>
   if (props.questions) {
@@ -35,24 +54,25 @@ const QuestionsTable = (props) => {
   }
   
   return (
-    <Table>
-    <TableHeader
-    displaySelectAll = {false}
-    adjustForCheckbox = {false}
-    >
-      <TableRow>
-        <TableHeaderColumn>Title</TableHeaderColumn>
-        <TableHeaderColumn>Year</TableHeaderColumn>
-        <TableHeaderColumn>State</TableHeaderColumn>
-        <TableHeaderColumn>Correlation</TableHeaderColumn>
-      </TableRow>
-    </TableHeader>
-    <TableBody
-    displayRowCheckbox = {false}
-    >
-      {items}
-    </TableBody>
-  </Table>
+  //   <Table>
+  //   <TableHeader
+  //   displaySelectAll = {false}
+  //   adjustForCheckbox = {false}
+  //   >
+  //     <TableRow>
+  //       <TableHeaderColumn>Title</TableHeaderColumn>
+  //       <TableHeaderColumn>Year</TableHeaderColumn>
+  //       <TableHeaderColumn>State</TableHeaderColumn>
+  //       <TableHeaderColumn>Correlation</TableHeaderColumn>
+  //     </TableRow>
+  //   </TableHeader>
+  //   <TableBody
+  //   displayRowCheckbox = {false}
+  //   >
+  //     {items}
+  //   </TableBody>
+  // </Table>
+    <Line data={data} />
   )
 }
 
