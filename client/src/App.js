@@ -4,6 +4,7 @@ import axios from 'axios';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
 import NatalityGraph from './components/NatalityGraph'
+import MapChart from './components/MapChart'
 import Selector from './components/Selector'
 
 class App extends Component {
@@ -44,6 +45,7 @@ class App extends Component {
           />
           <Selector onQueryChange={this.handleQuery} query={this.state.query}/>
           <NatalityGraph data={this.state.data}/>
+          <MapChart data={this.state.data}/>
         </div>
       </MuiThemeProvider>
     );

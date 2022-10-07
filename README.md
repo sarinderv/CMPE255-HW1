@@ -1,6 +1,10 @@
 # CMPE 255 - HW1 - Sarinder Virk
 
+## CREDITS:
+
 This is a revision of https://github.com/tonyxu-io/react-bigquery-app by Tony XU <yihan.xu@gmail.com>
+
+Map code is from https://www.react-simple-maps.io/examples/usa-with-state-labels by Richard Zimerman
 
 
 ## A Simple BigQuery App using React and Express
